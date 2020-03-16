@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:ob_id;datatype:int,name:ob_name;datatype:string,name:ob_author;datatype:string,name:ob_publishing;datatype:string,name:ISBN;datatype:string,name:ob_price;datatype:int,name:ob_content;datatype:blob,name:ob_img;datatype:string,name:obt_id;datatype:int" />
+</info>

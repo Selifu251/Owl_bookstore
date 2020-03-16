@@ -1,0 +1,3 @@
+<?php $cno=0;?>
+
+<?php $cno++;if($cno%3==0){echo"</tr><tr>";}?>

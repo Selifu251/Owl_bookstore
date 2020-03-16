@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:om_id;datatype:int,name:om_name;datatype:string,name:om_content;datatype:string,name:om_time;datatype:datetime" />
+</info>

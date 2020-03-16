@@ -1,0 +1,44 @@
+※程式碼一
+<?php
+$timesec=gettimeofday();
+$tmp=file("time.txt");
+if ($tmp[0]==""){
+  $fopen0=fopen("time.txt","w+");
+  fputs($fopen0,$timesec["sec"]);
+  fclose($fopen0);
+  $fopen1=fopen("ip.txt","w+");
+  fputs($fopen1,"");
+  fclose($fopen1);
+}
+$tmp1=file("time.txt");
+$equal=($timesec["sec"]-$tmp1[0]);
+if ($equal>60){
+  $fopen0=fopen("time.txt","w+");
+  fputs($fopen0,"");
+  fclose($fopen0); 
+}
+$fopen=fopen("ip.txt","a+");
+$ip=$_SERVER['REMOTE_ADDR'];
+$flag=1;
+$tmp2=file("ip.txt");
+$con=count($tmp2);
+for ($i=0;$i<$con;$i++){
+  if ($ip."\n"==$tmp2[$i]){
+    $flag=0;
+    break;
+  }
+}
+if ($flag==1){
+  $ipstring=$ip."\n";
+  fputs($fopen,$ipstring);
+}
+fclose($fopen);
+$tmp3=file("ip.txt");
+$onlineusr=count($tmp3);
+?>
+
+※程式碼二
+<meta http-equiv="refresh" content="30;URL=">
+
+※程式碼三
+<?php echo $onlineusr;?>

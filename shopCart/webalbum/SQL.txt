@@ -1,0 +1,53 @@
+◎RecAlbum 資料集 SQL 指令
+SELECT album.album_id, album.album_date, album.album_location, album.album_title, album.album_desc, (albumphoto.ap_picurl) AS album_photo, COUNT(albumphoto.ap_id) AS album_total
+FROM album INNER JOIN albumphoto ON album.album_id = albumphoto.album_id
+GROUP BY album.album_id, album.album_date, album.album_location, album.album_title, album.album_desc
+ORDER BY album.album_date DESC
+
+◎點選照片計次動作
+<?php
+mysql_select_db($database_connSQL, $connSQL);
+$query_Update = "UPDATE albumphoto SET ap_hits=ap_hits+1 WHERE ap_id = ".$_GET["ap_id"];
+$Result = mysql_query($query_Update, $connSQL) or die(mysql_error());
+?>
+
+◎管理界面 RecAlbum 資料集 SQL 指令
+SELECT album.album_id, album.album_date, album.album_location, album.album_title, album.album_desc, (albumphoto.ap_picurl) AS album_photo, COUNT(albumphoto.ap_id) AS album_total
+FROM album INNER JOIN albumphoto ON album.album_id = albumphoto.album_id
+GROUP BY album.album_id, album.album_date, album.album_location, album.album_title, album.album_desc
+ORDER BY album.album_date DESC
+
+◎刪除相簿時刪除相簿內所有圖檔的動作
+//刪除相關圖檔
+$delfileSQL = sprintf("SELECT * FROM albumphoto WHERE album_id=%s",
+               GetSQLValueString($_GET['album_id'], "int"));
+
+mysql_select_db($database_connSQL, $connSQL);
+$delFile = mysql_query($delfileSQL, $connSQL) or die(mysql_error());
+$row_delFile = mysql_fetch_assoc($delFile);
+do{
+ @ unlink('photos/'.$row_delFile['ap_picurl']);
+} while ($row_delFile = mysql_fetch_assoc($delFile));
+mysql_free_result($delFile);
+
+◎取得相簿最新編號
+//取得最新的相簿編號
+$maxid = mysql_insert_id();
+
+
+◎一次插入多筆記錄到資料庫
+//一次插入多筆記錄到資料庫
+  for($cno=1;$cno<=5;$cno++){
+	  if($_POST["ap_picurl".$cno]!=""){
+		 $insertSQL = sprintf("INSERT INTO albumphoto (album_id, ap_picurl, ap_subject) VALUES (%s, %s, %s)",
+                       GetSQLValueString($_POST['album_id'], "int"),
+                       GetSQLValueString($_POST['ap_picurl'.$cno], "text"),
+                       GetSQLValueString($_POST['ap_subject'.$cno], "text"));
+		 mysql_select_db($database_connSQL, $connSQL);
+		 $Result = mysql_query($insertSQL, $connSQL) or die(mysql_error());
+	  }
+  }
+
+◎刪除相關相片
+//刪除相關相片
+@unlink("photos/".$_GET["ap_picurl"]);

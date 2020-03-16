@@ -1,0 +1,9 @@
+<?php
+$nowtime=date("Y-m-d H:i:s"); //設定代表目前時間的變數
+	mysql_select_db($database_connSQL, $connSQL);	//連結資料庫
+	$userIP=$_SERVER['REMOTE_ADDR']; //收集瀏覽者的IP
+	$insertCommand="INSERT INTO webcount (count_id, count_ip,count_time) 
+	VALUES (NULL, '$userIP', '$nowtime')"; 	//新增資料的SQL字串
+	mysql_query($insertCommand,$connSQL); 	//執行webcount資料庫的新增
+	$_SESSION['Counter'] = 1; //設定Session值
+?>

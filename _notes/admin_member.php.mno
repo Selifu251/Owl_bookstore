@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_RecMember" value="name:ou_id;datatype:int,name:ou_username;datatype:string,name:ou_password;datatype:string,name:ou_name;datatype:string,name:ou_nickname;datatype:string,name:ou_email;datatype:string,name:ou_cellphone;datatype:string,name:ou_address;datatype:string,name:ou_level;datatype:string" />
+</info>

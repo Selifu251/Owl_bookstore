@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_RecAlbym" value="name:ap_id;datatype:int,name:album_id;datatype:int,name:ap_subject;datatype:string,name:ap_date;datatype:datetime,name:ap_picurl;datatype:string,name:ap_hits;datatype:int" />
+	<infoitem key="UD_RecAlbum" value="name:album_id;datatype:int,name:album_date;datatype:datetime,name:album_location;datatype:string,name:album_title;datatype:string,name:album_desc;datatype:blob" />
+	<infoitem key="UD_Recordset1" value="name:ap_id;datatype:int,name:album_id;datatype:int,name:ap_subject;datatype:string,name:ap_date;datatype:datetime,name:ap_picurl;datatype:string,name:ap_hits;datatype:int" />
+</info>

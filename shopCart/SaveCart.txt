@@ -1,0 +1,24 @@
+//取得最新的訂單編號
+  mysql_select_db($database_connShopCart, $connShopCart);
+  $query_Recordset1 = "SELECT Max(OrderID) as max_id FROM orders";
+  $Recordset1 = mysql_query($query_Recordset1,$connShopCart) or die(mysql_error());
+  $row_Recordset1 = mysql_fetch_assoc($Recordset1);
+  $totalRows_Recordset1 = mysql_num_rows($Recordset1); 
+  $_SESSION['OrderID'] = $row_Recordset1['max_id']; //將編號存入Session值中
+
+//將購物車的詳細內容一筆筆寫入資料表
+  if($cart->itemcount > 0) {
+    	foreach($cart->get_contents() as $item) {
+	  	$insertSQL = sprintf("INSERT INTO orderdetail (OrderID, ProductID, ProductName, UnitPrice, Quantity) VALUES (%s, %s, %s, %s, %s)",
+    	                   GetSQLValueString($row_Recordset1['max_id'], "int"),
+        	               GetSQLValueString($item['id'], "int"),
+        	               GetSQLValueString($item['info'], "text"),				   
+            	           GetSQLValueString($item['price'], "int"),
+                	       GetSQLValueString($item['qty'], "int")); 
+		mysql_select_db($database_connShopCart, $connShopCart);
+		$Result1 = mysql_query($insertSQL, $connShopCart) or die(mysql_error()); 
+		}
+  }
+
+// 關閉繫結的資料集
+  mysql_free_result($Recordset1);   
