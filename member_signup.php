@@ -126,26 +126,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                   <!-- //header lists 會員登入 註冊 -->
                   <!-- search 書籍搜索 -->
                   <div class="agileits_search">
-                      <form action="#" method="post">
-                          <input name="Search" type="search" placeholder="搜尋書籍" required>
+                      <form action="product.php" method="post">
+                          <input name="Search" type="search" placeholder="搜尋書籍">
                           <button type="submit" class="btn btn-default" aria-label="Left Align">
                               <span class="fa fa-search" aria-hidden="true"> </span>
                           </button>
                       </form>
                   </div>
                   <!-- //search 書籍搜索 -->
-                  <!-- cart details 購物車 -->
-                  <div class="top_nav_right">
-                      <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                          <form action="#" method="post" class="last">
-                              <input type="hidden" name="cmd" value="_cart">
-                               <button class="w3view-cart" type="submit" name="submit" value="">
-                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                               </button>
-                          </form>
-                      </div>
-                  </div>
-                  <!-- //cart details 購物車 -->
+                  
                   <div class="clearfix"></div>
               </div>
             <!-- // header -->

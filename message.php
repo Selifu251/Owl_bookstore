@@ -154,11 +154,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <li><span class="fa fa-phone" aria-hidden="true"></span> 06 7895425 </li>
                     <?php if(!isset($_SESSION['MM_Username'])){ ?>
                       <li>
-                          <a href="#" data-toggle="modal" data-target="#myModal1">
+                          <a href="member_signin.php">
                               <span class="fa fa-unlock-alt" aria-hidden="true"></span> 會員登入 </a>
                       </li>
                       <li>
-                          <a href="#" data-toggle="modal" data-target="#myModal2">
+                          <a href="member_signup.php">
                               <span class="fa fa-pencil-square-o" aria-hidden="true"></span> 會員註冊 </a>
                       </li>
                     <?php }else{ ?>
@@ -168,26 +168,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                   <!-- //header lists 會員登入 註冊 -->
                   <!-- search 書籍搜索 -->
                   <div class="agileits_search">
-                      <form action="#" method="post">
-                          <input name="Search" type="search" placeholder="搜尋書籍" required>
+                      <form action="product.php" method="post">
+                          <input name="Search" type="search" placeholder="搜尋書籍">
                           <button type="submit" class="btn btn-default" aria-label="Left Align">
                               <span class="fa fa-search" aria-hidden="true"> </span>
                           </button>
                       </form>
                   </div>
                   <!-- //search 書籍搜索 -->
-                  <!-- cart details -->
-                  <div class="top_nav_right">
-                      <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                          <form action="#" method="post" class="last">
-                              <input type="hidden" name="cmd" value="_cart">
-                               <button class="w3view-cart" type="submit" name="submit" value="">
-                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                               </button>
-                          </form>
-                      </div>
-                  </div>
-                  <!-- //cart details -->
+                  
                   <div class="clearfix"></div>
               </div>
             <!-- // header -->
